@@ -1,4 +1,4 @@
-# <img src="assets/odoo.png" height="60"/> Odoo Custom Modules  
+# <img src="assets/odoo.png" height="30"/> Odoo Custom Modules  
 A curated collection of my custom Odoo 17 Community modules.  
 This repository centralizes all my developments: feature extensions, business logic, workflow automations, system integrations, and customizations crafted for real-world projects.
 
