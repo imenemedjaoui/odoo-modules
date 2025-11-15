@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="action_global_calendar_event" model="ir.actions.act_window">
+        <field name="name">Global Calendar</field>
+        <field name="res_model">global.calendar.event</field>
+        <field name="view_mode">calendar,tree</field>
+        <field name="context">{'create': False, 'edit': False, 'delete': False}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Configure sources in Configuration to feed the global calendar.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_global_calendar_root" name="Global Calendar" sequence="10"  web_icon="global_calendar,static/description/icon.png"/>
+    <menuitem id="menu_global_calendar_events" name="Calendar" parent="menu_global_calendar_root" action="action_global_calendar_event" sequence="10"/>
+
+    <record id="view_global_calendar_event_calendar" model="ir.ui.view">
+        <field name="name">global.calendar.event.calendar</field>
+        <field name="model">global.calendar.event</field>
+        <field name="arch" type="xml">
+            <calendar string="Global Calendar"
+                      date_start="start"
+                      date_stop="stop"
+                      all_day="all_day"
+                      mode="week"
+                      quick_create="false"
+                      delete="false"
+                      color="color_hex_effective">
+
+                <field name="text_color_hex" invisible="1"/>
+                <field name="name"/>
+                <field name="user_ids"/>
+                <field name="source_id"/>
+                <!-- Filtres (cases à cocher) sous le mini-calendrier -->
+                <field name="source_id" filters="1"/>
+                <field name="user_id" filters="1" avatar_field="avatar_128"/>
+                
+            </calendar>
+        </field>
+    </record>
+    
+
+
+    <record id="view_global_calendar_event_tree" model="ir.ui.view">
+        <field name="name">global.calendar.event.tree</field>
+        <field name="model">global.calendar.event</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="start"/>
+                <field name="stop"/>
+                <field name="all_day"/>
+                <field name="user_ids" widget="many2many_tags"/>
+                <field name="source_id"/>
+                <field name="model_name"/>
+                <field name="res_id"/>
+            </tree>
+        </field>
+    </record>
+
+ 
+    <record id="view_global_calendar_event_search" model="ir.ui.view">
+        <field name="name">global.calendar.event.search</field>
+        <field name="model">global.calendar.event</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="user_ids"/>
+                <field name="source_id"/>
+                <filter name="my_events" string="My events" domain="['|',('allow_all_users','=',True),('user_ids','in',[uid])]"/>
+                <filter name="today" string="Today" domain="[['start','&gt;=',context_today().strftime('%%Y-%%m-%%d 00:00:00')],['start','&lt;=',context_today().strftime('%%Y-%%m-%%d 23:59:59')]]"/>
+            </search>
+        </field>
+    </record>
+</odoo>

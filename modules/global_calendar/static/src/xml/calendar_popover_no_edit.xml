@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <!-- Retire le bouton "Modifier" du popover calendrier -->
+  <t t-inherit="web.CalendarCommonPopover.footer" t-inherit-mode="extension">
+    <!-- On remplace tout élément d'action edit (data-action="edit") 
+         et l'anchor avec classe historique 'o_cw_popover_edit' -->
+    <xpath expr=".//*[@data-action='edit'] | .//a[contains(concat(' ', normalize-space(@class), ' '), ' o_cw_popover_edit ')]" position="replace">
+      <!-- (rien) : on supprime le bouton -->
+    </xpath>
+  </t>
+</odoo>

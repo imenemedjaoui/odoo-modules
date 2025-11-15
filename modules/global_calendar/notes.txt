@@ -1,0 +1,10 @@
+Global Calendar (safe build)
+============================
+• Odoo 17 compatible (no jQuery; no top-level await).
+• CRON: 5 minutes.
+• Views: calendar, tree, and form.
+• Sidebar filters + 'Synchroniser' button (right panel).
+• 'Synchroniser' server action appears in the '⚙ Actions' menu (list/calendar).
+• Source color picker uses `widget="color"`.
+• Access by rights in user configuration.
+• To clear stale assets: Developer mode → Clear Assets (or restart and update module).

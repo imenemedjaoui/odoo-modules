@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_bootstrap_sources_server" model="ir.actions.server">
+        <field name="name">Global Calendar — Sources</field>
+        <field name="model_id" ref="model_global_calendar_source"/>
+        <field name="state">code</field>
+        <field name="code">action = env['global.calendar.source'].sudo().action_bootstrap_common_sources()</field>
+    </record>
+
+    <record id="action_sync_now_events" model="ir.actions.server">
+        <field name="name">Synchroniser</field>
+        <field name="model_id" ref="model_global_calendar_event"/>
+        <field name="state">code</field>
+        <field name="binding_type">action</field>
+        <field name="code">env['global.calendar.source'].sudo().cron_sync_all_sources()</field>
+    </record>
+</odoo>

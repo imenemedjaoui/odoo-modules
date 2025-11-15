@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_global_calendar_source" model="ir.actions.act_window">
+        <field name="name">Sources</field>
+        <field name="res_model">global.calendar.source</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem id="menu_global_calendar_config" name="Configuration" parent="menu_global_calendar_root" sequence="90" groups="global_calendar.group_global_calendar_manager"/>
+    <menuitem id="menu_global_calendar_sources" name="Sources" parent="menu_global_calendar_config" action="action_global_calendar_source" groups="global_calendar.group_global_calendar_manager"/>
+
+    <record id="view_global_calendar_source_tree" model="ir.ui.view">
+        <field name="name">global.calendar.source.tree</field>
+        <field name="model">global.calendar.source</field>
+        <field name="arch" type="xml">
+            <tree create="1" edit="0">
+            <!-- <tree editable="bottom"> -->
+                <field name="sequence"/>
+                <field name="active"/>
+                <field name="name"/>
+                <field name="model_id"/>
+                <field name="title_field_id"/>
+                <field name="start_field_id"/>
+                <field name="stop_field_id"/>
+                <field name="duration_field_id"/>
+                <field name="user_m2o_field_id"/>
+                <field name="user_m2m_field_id"/>
+                <field name="visible_to_everyone"/>
+                <field name="color_hex" widget="color"/>
+                <field name="last_sync"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_global_calendar_source_form" model="ir.ui.view">
+        <field name="name">global.calendar.source.form</field>
+        <field name="model">global.calendar.source</field>
+        <field name="arch" type="xml">
+            <form string="Global Calendar Source">
+                <header>
+                    <button name="action_sync" type="object" string="Sync now" class="btn-primary"/>
+                    <button name="action_open_events" type="object" string="Open events"/>
+                    <field name="last_sync" widget="datetime" class="oe_inline"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="active"/>
+                            <field name="sequence"/>
+                            <field name="name"/>
+                            <field name="model_id" required="1"/>
+                        </group>
+                        <group>
+                            <field name="title_field_id"/>
+                            <field name="start_field_id" required="1"/>
+                            <field name="stop_field_id"/>
+                            <field name="duration_field_id"/>
+                        </group>
+                    </group>
+                    <group string="User mapping">
+                        <group>
+                            <field name="user_m2o_field_id"/>
+                            <field name="user_m2m_field_id"/>
+                            <field name="visible_to_everyone"/>
+                            <field name="color_hex" widget="color"/>
+                            <field name="color_index" invisible="1"/>
+                        </group>
+                    </group>
+                    <group string="Filtering">
+                        <field name="domain_filter" placeholder="e.g. [('active','=',True)]"/>
+                        <field name="sync_chunk_size"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

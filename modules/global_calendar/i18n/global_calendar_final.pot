@@ -1,0 +1,150 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* global_calendar
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: global_calendar
+msgid "Calendar"
+msgstr ""
+
+#. module: global_calendar
+msgid "Color"
+msgstr ""
+
+#. module: global_calendar
+msgid "Company"
+msgstr ""
+
+#. module: global_calendar
+msgid "Configuration"
+msgstr ""
+
+#. module: global_calendar
+msgid "Configure sources in Configuration to feed the global calendar."
+msgstr ""
+
+#. module: global_calendar
+msgid "Domain"
+msgstr ""
+
+#. module: global_calendar
+msgid "Filtering"
+msgstr ""
+
+#. module: global_calendar
+msgid "Global Calendar"
+msgstr ""
+
+#. module: global_calendar
+msgid "Global Calendar Manager"
+msgstr ""
+
+#. module: global_calendar
+msgid "Global Calendar Source"
+msgstr ""
+
+#. module: global_calendar
+msgid "Global Calendar — Sources"
+msgstr ""
+
+#. module: global_calendar
+msgid "Global Calendar — Sync all sources"
+msgstr ""
+
+#. module: global_calendar
+msgid "Global Event"
+msgstr ""
+
+#. module: global_calendar
+msgid "Hex color like #RRGGBB"
+msgstr ""
+
+#. module: global_calendar
+msgid "If enabled, all internal users can see this event."
+msgstr ""
+
+#. module: global_calendar
+msgid "If no user field is provided or empty, events become visible to all internal users."
+msgstr ""
+
+#. module: global_calendar
+msgid "Model"
+msgstr ""
+
+#. module: global_calendar
+msgid "My events"
+msgstr ""
+
+#. module: global_calendar
+msgid "Open events"
+msgstr ""
+
+#. module: global_calendar
+msgid "Sources"
+msgstr ""
+
+#. module: global_calendar
+msgid "Source"
+msgstr ""
+
+#. module: global_calendar
+msgid "Sources"
+msgstr ""
+
+#. module: global_calendar
+msgid "Start Field"
+msgstr ""
+
+#. module: global_calendar
+msgid "Stop Field"
+msgstr ""
+
+#. module: global_calendar
+msgid "Duration Field"
+msgstr ""
+
+#. module: global_calendar
+msgid "Sync now"
+msgstr ""
+
+#. module: global_calendar
+msgid "Synchroniser"
+msgstr ""
+
+#. module: global_calendar
+msgid "Title Field"
+msgstr ""
+
+#. module: global_calendar
+msgid "Today"
+msgstr ""
+
+#. module: global_calendar
+msgid "True"
+msgstr ""
+
+#. module: global_calendar
+msgid "User mapping"
+msgstr ""
+
+#. module: global_calendar
+msgid "Users"
+msgstr ""
+
+#. module: global_calendar
+msgid "Users concerned by this event."
+msgstr ""
+
+#. module: global_calendar
+msgid "Visible to everyone"
+msgstr ""
