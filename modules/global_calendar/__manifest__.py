@@ -6,7 +6,6 @@
     "category": "Productivity",
     "author": "Imène M",
     "license": "LGPL-3",
-    "website": "",
     "depends": ["base", "web"],
     "data": [
         "security/security.xml",

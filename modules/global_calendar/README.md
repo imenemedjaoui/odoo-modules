@@ -24,6 +24,10 @@ coming from multiple modules.
 
 ## 🧩 Technical Details
 
+### Models Modified
+
+-   *None*
+
 ### New Models
 
 -   `global.calendar.source`
