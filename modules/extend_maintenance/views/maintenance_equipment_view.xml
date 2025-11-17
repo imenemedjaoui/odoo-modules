@@ -1,0 +1,49 @@
+<odoo>
+
+    
+    <record id="view_maintenance_equipment_product_form_inherit" model="ir.ui.view">
+        <field name="name">maintenance.equipment.product.form.inherit</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance_product.pm_maintenance_equipment_form_view"/>
+        <field name="arch" type="xml">
+            <!-- Insérer le choix du numéro de série juste après le produit -->
+            <xpath expr="//field[@name='product_id']" position="after">
+                <field name="product_tracking" invisible="1"/>
+                <field name="lot_id"
+                    invisible="product_tracking != 'serial'"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_maintenance_equipment_form_inherit" model="ir.ui.view">
+        <field name="name">maintenance.equipment.form.inherit</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
+        <field name="arch" type="xml">
+            <!-- Ajout des nouveaux champs après le champ "location" -->
+            <xpath expr="//field[@name='maintenance_team_id']" position="before">
+                <field name="equipment_image" widget="image" class="oe_avatar" string=""/>
+            </xpath>
+
+            <!-- Smart button "Numéro de série" -->
+            <xpath expr="//sheet//div[@name='button_box']" position="inside">
+                <field name="lot_id" invisible="1"/>
+                <button name="action_open_lot"
+                        type="object"
+                        class="oe_stat_button"
+                        invisible="lot_id == False" icon="fa-hashtag">
+                        
+                    <field name="serial_no" widget="statinfo" string="Numéro de série"/>
+                </button>
+            </xpath>
+                    
+            <xpath expr="//field[@name='location']" position="after">
+                <field name="state_custom"/>
+                <field name="calibration_date"/>
+                <field name="recall_date"/>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>
