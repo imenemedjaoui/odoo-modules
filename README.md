@@ -54,9 +54,9 @@ odoo-modules/
 ## 📦 Modules List  
 
 ```
-- [ ] module_name_1  
-- [ ] module_name_2  
-- [ ] module_name_3  
+- [ ] extend_maintenance
+- [ ] force_mail_smtp
+- [ ] global_calendar
 - [ ] ...
 ```
 
