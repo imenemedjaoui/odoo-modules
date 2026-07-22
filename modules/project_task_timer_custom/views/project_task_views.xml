@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Form view extension: ajoute le chronomètre et les boutons de contrôle -->
+    <record id="view_project_task_form_timer" model="ir.ui.view">
+        <field name="name">project.task.form.timer</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+
+            <!-- Ajouter les boutons et l'affichage du chronomètre dans l'en-tête du formulaire -->
+            <xpath expr="//form/header" position="inside">
+                <div class="o_project_timer_controls" style="display:flex; align-items:center; gap:8px; margin-top:10px;">
+                    <button name="action_timer_toggle" type="object" class="btn btn-primary" string="Démarrer / Pause"/>
+                    <button name="action_timer_stop" type="object" class="btn btn-danger" string="Arrêter"/>
+                    <span style="margin-left:10px;">
+                        <field name="timer_display" widget="timer_display_live" nolabel="1"/>
+                    </span>
+                    <!-- Champs invisibles pour le poller -->
+                    <field name="timer_running" invisible="1"/>
+                </div>
+            </xpath>
+            
+            <!-- Champs nécessaires pour les décorations -->
+            <xpath expr="//form/sheet" position="before">
+                <field name="timer_paused" invisible="1"/>
+            </xpath>
+            
+            <!-- Ajouter nos nouveaux champs dans l'onglet extra info -->
+            <xpath expr="//notebook/page[@name='extra_info']" position="inside">
+                <group string="Chronomètre">
+                    <field name="first_start_datetime"/>
+                    <field name="allocated_reached_datetime"/>
+                    <field name="timer_pause_total"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Tree view extension: afficher le chronomètre -->
+    <record id="view_project_task_tree_timer" model="ir.ui.view">
+        <field name="name">project.task.tree.timer</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_tree2"/>
+        <field name="arch" type="xml">
+            <!-- Ajouter le champ du chronomètre après la colonne nom -->
+            <xpath expr="//tree/field[@name='name']" position="after">
+                <field name="timer_display" widget="timer_display_live" string="Chronomètre" optional="show"/>
+                <field name="timer_running" invisible="1"/>
+                <field name="timer_paused" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+
+    <!-- Kanban view extension: afficher le chronomètre via le widget OWL -->
+    <record id="view_project_task_kanban_timer" model="ir.ui.view">
+        <field name="name">project.task.kanban.timer</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr=".//div[hasclass('oe_kanban_bottom_right')]" position="inside">
+                <!-- Widget d'affichage live -->
+                <field name="timer_display"
+                       widget="timer_display_live"
+                       nolabel="1"
+                       class="o_project_timer_display"/>
+
+                <!-- Widget invisible qui poll le serveur -->
+                <field name="timer_running" widget="task_timer_poller" invisible="1"/>
+                <field name="timer_paused" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    
+</odoo>

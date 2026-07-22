@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <!-- Template pour afficher le timer en temps réel -->
+    <t t-name="project_task_timer_custom.TaskTimerPoller">
+        <span class="o_timer_live_display" t-if="state.timerDisplay" style="display:none;">
+            <t t-esc="state.timerDisplay"/>
+        </span>
+    </t>
+    
+    <!-- Template pour le widget d'affichage du timer -->
+    <t t-name="project_task_timer_custom.TimerDisplayWidget">
+        <span t-att-style="displayStyle">
+            <t t-esc="state.display"/>
+        </span>
+    </t>
+</templates>
