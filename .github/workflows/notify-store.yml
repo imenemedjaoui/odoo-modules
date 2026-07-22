@@ -25,7 +25,7 @@ on:
   workflow_dispatch: {}   # lets you trigger a rebuild manually from the Actions tab
 
 env:
-  STORE_REPO: imenemedjaoui/imporium   # <-- change to your store repo (owner/name)
+  STORE_REPO: imenemedjaoui/IMporium   # <-- your store repo (owner/name)
 
 jobs:
   notify:
